@@ -1,7 +1,8 @@
+import { Providers } from './providers'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Link from 'next/link';
+import Header from '@/components/Header';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,18 +17,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header> 
-          <h1>Login</h1>
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/private">Página Privada</Link>
-          </nav>
-        </header>
-        <hr />
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={inter.className}>
+            <Providers>
+              <Header/>
+              <hr />
+              {children}
+            </Providers>
+        </body>
+      </html>
   )
 }
